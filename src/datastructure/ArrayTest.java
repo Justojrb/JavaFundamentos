@@ -2,6 +2,7 @@ package datastructure;
 
 import java.util.Arrays;
 import java.util.EnumSet;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.random.RandomGenerator;
 
@@ -37,11 +38,44 @@ public class ArrayTest {
 
 		switchArray(numbers, 0, 3, 1, 2);
 		System.out.println(Arrays.toString(numbers));
-		
+
 		int[] numeros1 = { 47, 50, 37, 85 };
 		reverse(numeros1);
 		System.out.println(Arrays.toString(numeros1));
 
+		int[] sliced = slice(Values, 1, 3);
+		System.out.println(Arrays.toString(sliced));
+
+	}
+
+	/**
+	 * 
+	 * @param arr
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+
+private static int[] slice(int[] arr, int start, int end) {
+		
+		if(arr == null) {
+			return null;
+		}
+		
+		if(start < 0 || end < 0 || start >= arr.length || end >= arr.length) {
+			return null;
+		}
+		
+		System.out.println(arr);
+		int[] result = new int[end - start + 1];
+		//result[0] = arr[start];
+		//result[1] = arr[start + 1];
+		//result[2] = arr[start + 2];
+		for (int i = 0; i < result.length; i++) {
+			result[i] = arr[start + i];
+	}
+		return result;
+		
 	}
 
 	private static void reverse(int[] arr) {
