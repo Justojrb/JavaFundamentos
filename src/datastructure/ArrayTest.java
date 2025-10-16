@@ -148,7 +148,7 @@ private static int[] slice(int[] arr, int start, int end) {
 
 	}
 
-	private static void SwitchValues(int[] Values, int index1, int index2) {
+	public static void SwitchValues(int[] Values, int index1, int index2) {
 
 		if (Values == null) {
 			return;
