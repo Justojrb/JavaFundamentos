@@ -22,4 +22,10 @@ public class Celestialbody {
         this.mass = mass;
     }
 
+    public String getSize() {
+        return null;
+    }
+
+    public void setSize(int i) {
+    }
 }
