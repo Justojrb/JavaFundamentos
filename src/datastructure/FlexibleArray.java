@@ -10,7 +10,10 @@ of the array, we have to expand it.
  */
 
 public class FlexibleArray<T> {
+<<<<<<< HEAD
     private static final int EXPANSION_FACTOR = 40;
+=======
+>>>>>>> dcc151a00a04fb1ae123c7b5d4a6f7d7e8c8e5bd
     //An array with fixed size
     private T [] elements;
     private static final int  INITIAL_CAPACITY = 5;
@@ -23,9 +26,12 @@ public class FlexibleArray<T> {
      * @param size
      */
     public FlexibleArray(int size){
+<<<<<<< HEAD
         if(size <= 0){
 
         }
+=======
+>>>>>>> dcc151a00a04fb1ae123c7b5d4a6f7d7e8c8e5bd
         elements = (T[])new Object [size];
     }
     /**
@@ -41,6 +47,7 @@ public class FlexibleArray<T> {
      * @param t
      */
     public void add(T t) {
+<<<<<<< HEAD
         elements[size] = t;
         //paso 0 : check if we have reached to the last position,
         //if true, we have to expand the capacity of the array
@@ -54,6 +61,14 @@ public class FlexibleArray<T> {
     public void remove(int t) {
     	elements[t] = null;
     	size--;
+=======
+        //paso 0 : check if we have reached to the last position,
+        //if true, we have to expand the capacity of the array
+        //paso 1: add the element to the last position of the array
+    }
+
+    public void remove(int t) {
+>>>>>>> dcc151a00a04fb1ae123c7b5d4a6f7d7e8c8e5bd
     }
 
     public int size (){

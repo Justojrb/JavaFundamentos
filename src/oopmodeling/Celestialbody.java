@@ -1,29 +1,31 @@
 package oopmodeling;
 
 public class Celestialbody {
-	public double mass = 50;
-	private float size = 100;
-	protected String name = "Sol";
-	
-	public double getMass() {
-		return mass;
-	}
-	public void setMass(double mass) {
-		this.mass = mass;
-	}
-	public float getSize() {
-		return size;
-	}
-	public void setSize(float size) {
-		this.size = size;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+    // las variables por defecto
+    protected double mass = 1000000;
+    String name = "Unknown";
+    public float radius = 12343434.3f;
 
+    public double getMass() { return mass;}
+    public String getName() { return name;}
+    public float getRadius() {return radius;}
+    public  void  setMass(double mass) {this.mass = mass;}
+    public  void  setName(String name) {this.name = name;}
+    public  void  setRadius(float radius) {this.radius = radius;}
+    //contructor of this class
+    public Celestialbody(){}
+    public Celestialbody(String name){
+        this.name = name;
+    }
+    public Celestialbody(double mass, String name){
+        this.name = name;
+        this.mass = mass;
+    }
+
+    public String getSize() {
+        return null;
+    }
+
+    public void setSize(int i) {
+    }
 }
-
-
