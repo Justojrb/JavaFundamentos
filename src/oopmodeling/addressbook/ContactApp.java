@@ -1,63 +1,108 @@
 package oopmodeling.addressbook;
 
 import java.util.Scanner;
-
 /**
  * 
- * @author Justo 26 nov 2025
+ *@author Justo
+ *1 dic 2025
  */
+
+/*
+ *The class used to interact with the users
+ * 
+ */
+
 public class ContactApp {
-
-	final static AddressBook addressbook = new AddressBook();
+	
+	final static AddressBook addressBook = new AddressBook();
 	final static Scanner scanner = new Scanner(System.in);
-
+	
 	public static void main(String[] args) {
-
 		byte option = 4;
-
-		while (true) {
+		
+		while(true) {
 			showMenu();
-
+			
 			option = scanner.nextByte();
 			System.out.println(option);
-
-			if (option == 4) {
-				System.out.println("Exiting program");
-				break;
-
-			}
-
-			else if (option == 1) {
+			
+			
+		
+			
+			if (option == 1) {
 				addContact();
+				
 			}
+			
+			else if (option == 2) {
+				showContact();
+			}
+			
+			else if  (option == 3) {
+				removeContact();
+			} 
+			else if(option == 4) {
+				System.out.println("Exit from the App");
+				break;
+			}
+			
 		}
+			
+			
+		}
+		
+		
+		
+	
 
+	private static void removeContact() {
+		System.out.println("---Remove contact from your address book--- ");
+		// 1 The user introduces the name of the contact that he wants to eliminate
+		System.out.println("Please enterthe name ");
+		String name = scanner.nextLine();
+		System.out.println(name);
+		addressBook.removeContact(name);
+		
+		
+		
 	}
 
-	// addressbook.showContacts();
-	// addressbook.addContact(null);5
+	private static void showContact() {
+		
+		
+	}
 
 	private static void addContact() {
-		System.out.println(" Create new contact number to your address book ");
-		
-		//1 the user introduces the phone number, name and other info about the contact
-		
-		System.out.println(" Please enter the contacts name ");
+		System.out.println("/=== ADD CONTACT TO YOUR ADDRES BOOK ===/");
+		// 1 The user introduce the number,name and other information about the contact
+		scanner.nextLine();
+		System.out.println("=== PLEASE ENTER THE NAME ===");
 		String name = scanner.nextLine();
-		//2 Create new object of "contact" encapsulating all the data passed in the first step
+		System.out.println(name);
 		
-		//3 Add the new object to the contact array
+		System.out.println("=== PLEASE ENTER THE PHONENUMBER ===");
+		String phoneNumber = scanner.nextLine();
+		System.out.println(phoneNumber);
 		
+		System.out.println("=== PLEASE ENTER THE EMAIL ===");
+		String email = scanner.nextLine();
+		System.out.println(email);
+		// 2 Create an object of "Contact" encapsulating all the data passed in the firt step
+		
+		Contact contact = new Contact(name, phoneNumber, email);
+		
+		// 3 Add the new object to the contact list array
+		addressBook.addContact(contact);
+		System.out.println("The contact has been added successfuly");
 	}
 
-
 	private static void showMenu() {
-
-		System.out.println("1, Create new contact");
-		System.out.println("2, Show contact");
-		System.out.println("3, remove contact");
-		System.out.println("4, Exit");
-
+		System.out.println("\n/====== MENU ======/");
+		System.out.println("1 /ADD CONTACT/");
+		System.out.println("2 /SHOW CONTACT");
+		System.out.println("3 /REMOVE CONTACT/");
+		System.out.println("4 /EXIT/");
+		
 	}
 
 }
