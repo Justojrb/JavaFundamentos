@@ -69,9 +69,10 @@ public class FlexibleArray<T>{
 //    	elements[i + 2] = elements[i + 3];
 //    	elements[i + 3] = elements[i + 4];
     	//...
+    	//size -i - 1 is thenumber of elements that we have to move
     	
-    	for (int j = 0; j < 5; j++) {
-			T e = elements[j];
+    	for (int j = 0; j < size - i - 1; j++) {
+			elements[i + j] = elements[i + j + 1];
 		}
     	
     	size--;
@@ -83,6 +84,10 @@ public class FlexibleArray<T>{
     
     public T[] getAll() {
     	return elements;
+    }
+    
+    public T get(int index) {
+    	return elements [index];
     }
 }
     

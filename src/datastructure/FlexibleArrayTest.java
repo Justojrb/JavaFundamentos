@@ -12,7 +12,8 @@ public class FlexibleArrayTest {
 		}
         
         System.out.println("The current size = " + flexibleArray.size());
-        flexibleArray.remove(4);
+        flexibleArray.remove(1);
+        flexibleArray.remove(1);
 
     }
 
