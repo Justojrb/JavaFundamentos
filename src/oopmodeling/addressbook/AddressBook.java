@@ -16,10 +16,19 @@ public class AddressBook {
 	// Atributes
 	protected FlexibleArray<Contact> contacts;
 
+	public AddressBook() {
+		contacts = new FlexibleArray<Contact>();
+	}
+	
+	
 	protected Scanner scanner;
 
 	// Behaves
 	public void showContacts() {
+	for (int i = 0; i < contacts.size(); i++) {
+		System.out.println(contacts.get(i).toString());
+		
+	}
 
 	}
 

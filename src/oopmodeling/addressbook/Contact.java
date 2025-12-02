@@ -1,8 +1,15 @@
 package oopmodeling.addressbook;
 
+import java.security.PublicKey;
+
+
 public class Contact {
 	public Contact(String name2, String phoneNumber2, String email2) {
-		// TODO Auto-generated constructor stub
+		
+		this.email = email2;
+		this.phoneNumber = phoneNumber2;
+		this.name = name2;
+
 	}
 	private String phoneNumber;
 	private String name;
@@ -33,6 +40,8 @@ public class Contact {
 		this.email = email;
 	}
 	
-	
+	public String toString() {
+		return "name: " + name + "phone number: " + phoneNumber;
+	}
 
 }
