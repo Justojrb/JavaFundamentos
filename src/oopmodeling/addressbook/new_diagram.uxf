@@ -4,56 +4,127 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>140</x>
-      <y>190</y>
-      <w>100</w>
-      <h>30</h>
+      <x>40</x>
+      <y>130</y>
+      <w>260</w>
+      <h>190</h>
     </coordinates>
-    <panel_attributes>MyClass
+    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
+Package::Contact
+{Some Properties}
 --
-a
-b
-c
-d
+getPhoneNumber
+setPhoneNumber
+getName
+setName
+getSurname
 --
-getA():int
-getB():int
-getC():int
-getD():int</panel_attributes>
+Responsibilities
+-- this class is to create the Constructors
+
+
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>90</x>
-      <y>310</y>
+      <x>360</x>
+      <y>130</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
-Package::FatClass
+Package::ContactApp
 {Some Properties}
 --
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
+removeContact
+showContact
+addContact
+showMenu
 --
 Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes>
+-- This class is used to interact with the users
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>130</y>
+      <w>220</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
+Package::AddressBook
+{Some Properties}
+--
+showContacts
+addContact
+removeContact
+--
+Responsibilities
+-- This class is in charge of 
+administrating a group of contacts
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>470</x>
+      <y>430</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Use case 1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>210</y>
-      <w>30</w>
-      <h>120</h>
+      <x>520</x>
+      <y>320</y>
+      <w>260</w>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>310</x>
+      <y>510</y>
+      <w>430</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Note..
+/*
+*The main performance bottleneck comes from using a list 
+*inside AddressBook, which forces operations like 
+*removeContact(name) or any name lookup to scan the entire list, 
+*making them O(n) and increasingly slow as the address book 
+*grows. The simplest and most effective fix is to replace the
+* internal list with a HashMap&lt;String, Contact&gt;, which reduces 
+*add, remove, and lookup operations to O(1) on average, 
+*eliminating the bottleneck and greatly improving overall
+*performance.
+*/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>460</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
 </diagram>

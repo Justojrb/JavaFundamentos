@@ -1,7 +1,13 @@
 package javaio;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.file.ReadOnlyFileSystemException;
 
 /**
  * 
@@ -21,6 +27,48 @@ public class FileOperations {
 		createFile(file);
 
 		createAbsolutePath();
+		
+		writeFile();
+		
+		readFile();
+	}
+
+	private static void readFile() {
+	try {
+		FileReader reader = new FileReader("log.txt");
+		System.out.println((char)reader.read());
+		System.out.println((char)reader.read());
+		System.out.println((char)reader.read());
+		System.out.println((char)reader.read());
+
+
+		
+
+	} catch (IOException e) {
+		
+		e.printStackTrace();
+	}
+		
+	}
+
+	private static void writeFile() {
+		try {
+			FileWriter writer = new FileWriter("log.txt");
+			writer.write("Black holes");
+			writer.write("pollas en vinagre");
+			writer.write("");
+			//close the friter and refresh the data
+			writer.close();
+			//refresh data we have writen to the file
+			//writer.flush();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		
+		 
+
+		
 	}
 
 	private static void createAbsolutePath() {
