@@ -39,9 +39,23 @@ public class FileOperations {
 		System.out.println((char)reader.read());
 		System.out.println((char)reader.read());
 		System.out.println((char)reader.read());
+		//check the condition first before executing the whilebody
+    char c = '1';
+	while ((c = (char)reader.read()) != -1) {
+		System.out.println(c);
+
+		
+	}
+	reader.close();
+	/**
+	 * Execute the commands inside the "do" body first,
+	 * then check the condition, if it is true repeat
+	 * the execution
+	 */
+	do {
 		System.out.println((char)reader.read());
-
-
+		
+	} while (true);
 		
 
 	} catch (IOException e) {
