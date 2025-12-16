@@ -1,123 +1,131 @@
 package javaio;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.file.ReadOnlyFileSystemException;
 
 /**
  * 
- * @author Justo 3 dic 2025
+ * @author Justo
+ * 16 dic 2025
  */
 
 public class FileOperations {
-	public static void main(String[] args) {
-		File file = new File("/logs/user.log");
 
-		File directory = new File("/pablo/logs/");
+    public static void main(String[] args) {
 
-		System.out.println("working directory : " + System.getProperty("user.dir"));
+        File file = new File("log.txt");
+        File directory = new File("logs");
 
-		createPath(directory);
+        // Show current working directory
+        System.out.println("working directory : " + System.getProperty("user.dir"));
 
-		createFile(file);
+        createPath(directory);
+        createFile(file);
+        createAbsolutePath();
 
-		createAbsolutePath();
-		
-		writeFile();
-		
-		readFile();
-	}
+        writeFile();
 
-	private static void readFile() {
-	try {
-		FileReader reader = new FileReader("log.txt");
-		System.out.println((char)reader.read());
-		System.out.println((char)reader.read());
-		System.out.println((char)reader.read());
-		//check the condition first before executing the whilebody
-    char c = '1';
-	while ((c = (char)reader.read()) != -1) {
-		System.out.println(c);
+        // Read file using while and do-while
+        readFile();
+    }
 
-		
-	}
-	reader.close();
-	/**
-	 * Execute the commands inside the "do" body first,
-	 * then check the condition, if it is true repeat
-	 * the execution
-	 */
-	do {
-		System.out.println((char)reader.read());
-		
-	} while (true);
-		
+    private static void readFile() {
+        try {
 
-	} catch (IOException e) {
-		
-		e.printStackTrace();
-	}
-		
-	}
+            // FileReader reads the file character by character
+            FileReader reader = new FileReader("log.txt");
 
-	private static void writeFile() {
-		try {
-			FileWriter writer = new FileWriter("log.txt");
-			writer.write("Black holes");
-			writer.write("pollas en vinagre");
-			writer.write("");
-			//close the friter and refresh the data
-			writer.close();
-			//refresh data we have writen to the file
-			//writer.flush();
-		} catch (IOException e) {
+            /**
+             * check the condition first before executing the while body
+             * FileReader.read() returns an int
+             * -1 means end of file (EOF)
+             */
+            int c;
+            while ((c = reader.read()) != -1) {
+                System.out.print((char) c);
+            }
 
-			e.printStackTrace();
-		}
-		
-		 
+            // Close reader after finishing while loop
+            reader.close();
 
-		
-	}
+            System.out.println("\n--- Reading again using do-while ---");
 
-	private static void createAbsolutePath() {
+            // New reader needed because the previous one was closed
+            reader = new FileReader("log.txt");
 
-		// create directory using absolute path
-		File absoluteDir = new File(System.getProperty("user.dir") + "/logs/user.log");
-		absoluteDir.mkdir();
+            /**
+             * Execute the commands inside the "do" body first,
+             * then check the condition, if it is true repeat
+             * the execution
+             */
+            do {
+                c = reader.read();
+                if (c != -1) {
+                    System.out.print((char) c);
+                }
+            } while (c != -1);
 
-	}
+            // Close reader after do-while
+            reader.close();
 
-	private static void createPath(File file) {
-		System.out.println(file.isAbsolute());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-		System.out.println(file.getPath());
-		// create directories specified by the "file" object
-		file.getParentFile().mkdirs();
+    private static void writeFile() {
+        try {
 
-		System.out.println(file.getAbsolutePath());
+            FileWriter writer = new FileWriter("log.txt");
 
-	}
+            writer.write("Black holes\n");
+            writer.write("pollas en vinagre\n");
+            writer.write("End of file example\n");
 
-	private static void createFile(File file) {
+            // close the writer and refresh the data
+            writer.close();
 
-		if (file.exists()) {
-			System.out.println("the log file exists");
-		} else {
-			System.out.println("the log file does not exist");
-			try {
-				file.createNewFile();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			// With try catch, we can continue executing the program without interruption
-			System.out.println("finished");
-		}
-	}
+            // refresh data we have written to the file
+            // writer.flush();  // not needed if we close the writer
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void createAbsolutePath() {
+
+        // create directory using absolute path
+        File absoluteDir = new File(System.getProperty("user.dir") + "/logs");
+        absoluteDir.mkdir();
+    }
+
+    private static void createPath(File file) {
+
+        System.out.println(file.isAbsolute());
+        System.out.println(file.getPath());
+
+        // create directories specified by the "file" object
+        file.mkdirs();
+
+        System.out.println(file.getAbsolutePath());
+    }
+
+    private static void createFile(File file) {
+
+        if (file.exists()) {
+            System.out.println("the log file exists");
+        } else {
+            System.out.println("the log file does not exist");
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                // With try catch, we can continue executing the program without interruption
+                e.printStackTrace();
+            }
+            System.out.println("finished");
+        }
+    }
 }
