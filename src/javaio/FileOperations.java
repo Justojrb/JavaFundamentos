@@ -1,8 +1,8 @@
 package javaio;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -31,7 +31,17 @@ public class FileOperations {
 	}
 
 	private static void bufferedWrite() {
-		
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter("contacts.txt"));
+			writer.write("Manolo" + ";" + " manu@G");
+			writer.newLine();
+			writer.write("Panblo" + ";" + " pab@G");
+			writer.newLine();
+			//writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static void bufferedRead() {
