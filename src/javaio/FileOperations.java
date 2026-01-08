@@ -10,7 +10,7 @@ import java.io.IOException;
 /*
  *
  * @author Justo
- * 18 dic 2025
+ * 8 dic 2026
  */
 public class FileOperations {
 	
@@ -25,7 +25,7 @@ public class FileOperations {
 		createAbsolutePath();
 		writeFile();
 		readFile();
-		bufferedRead();
+		bufferedReader();
 		bufferedWrite();
 		
 	}
@@ -44,11 +44,25 @@ public class FileOperations {
 		}
 	}
 
-	private static void bufferedRead() {
+	private static void bufferedReader() {
 		try {
+			System.out.println();
 			System.out.println("Buffered reader");
-			BufferedReader br = new BufferedReader(new FileReader("log.txt"));
-			System.out.println(br.readLine());
+			//wrap an instance of @link{FileReader} in an instance of @link{BufferedReader}
+			//so we can manipulate the data in another way in our case reading the data line by line
+			BufferedReader br = new BufferedReader(new FileReader("contacts.txt"));
+			//read a line from the file
+			//System.out.println(br.readLine());		
+			String data;
+			do {
+				//define what we want to do
+				//read a line
+				data =  br.readLine();
+				System.out.println(data);
+				data.split(";");
+			}
+			while(data != null);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
