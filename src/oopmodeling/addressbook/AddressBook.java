@@ -1,8 +1,12 @@
 package oopmodeling.addressbook;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 import datastructure.FlexibleArray;
+import utils.FileUtil;
 
 
 /**
@@ -21,6 +25,7 @@ public class AddressBook {
 	}
 	
 	
+	
 	protected Scanner scanner;
 
 	// Behaves
@@ -32,10 +37,15 @@ public class AddressBook {
 
 	}
 
+	
 	public void addContact(Contact contact) {
 		contacts.add(contact);
+		
+		FileUtil.wrtiteToFile(contact);
 
 	}
+	
+	
 
 	public boolean removeContact(String name) {
 		// 1 a loop to find the position of the contact in the array
