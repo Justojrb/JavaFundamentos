@@ -41,7 +41,7 @@ public class AddressBook {
 	public void addContact(Contact contact) {
 		contacts.add(contact);
 		
-		FileUtil.wrtiteToFile(contact);
+		FileUtil.writeToFile(contact);
 
 	}
 	
