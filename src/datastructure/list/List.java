@@ -15,4 +15,15 @@ public interface List <E> {
 	public void add (E e);
 	
 	public E removeLast ();
+	
+	public void clear();
+	
+	public void printList();
+	
+	
+	
+	
+	
+	
+	
 }

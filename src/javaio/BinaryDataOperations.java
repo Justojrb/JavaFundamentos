@@ -43,28 +43,19 @@ new DataOutputStream(new FileOutputStream("hola.txt"));){
   }
 
 	private static void readBinaryData() throws FileNotFoundException {
-		DataInputStream is = 
-				new DataInputStream(new FileInputStream(""));
+		DataInputStream is = new DataInputStream(new FileInputStream("hola.txt"));
 		try {
 			is.readChar();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			is.readInt();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
 			is.readUTF();
+			System.out.println(is.readUTF());
+			is.readInt();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	
 	private static void writeBinaryData() {
 		
 	}
