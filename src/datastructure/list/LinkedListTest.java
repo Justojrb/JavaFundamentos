@@ -15,7 +15,7 @@ public class LinkedListTest {
 		second.setNext(third);
 		third.setNext(fourth);
 
-		LinkedListImpl<Integer> list = new LinkedListImpl<>();
+		LinkedListImpl<Integer> List = new LinkedListImpl<>();
 		List.add(1);
 		List.add(2);
 		List.add(3);
