@@ -2,7 +2,9 @@ package datastructure;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class BuiltinDataStructure {
 	public static void main(String[] args) {
@@ -33,10 +35,19 @@ public class BuiltinDataStructure {
 		callstack.push(34);
 		callstack.push(56);
 		callstack.push(78);
-		//peek is used to read the element on top of the stack without removing it
+		//peek is used to read the element on top of the stack without removing it–
 		System.out.println(callstack.peek());
-
+		//Removes the object at the top of this stack and returns that object as the value of this function.
+		System.out.println(callstack.pop());
+		System.out.println(callstack.peek());
 		
+		Queue<Integer> queue = new ConcurrentLinkedQueue<>();
+		queue.add(123);
+		queue.add(213);
+		queue.add(332);
+		queue.add(454);
+		System.out.println(queue.poll());
+		//poll is used to read the element at the head of the queue without removing it–
 
 	}
 }
