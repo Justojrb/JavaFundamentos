@@ -1,9 +1,11 @@
 package datastructure;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.TreeMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class BuiltinDataStructure {
@@ -48,6 +50,10 @@ public class BuiltinDataStructure {
 		queue.add(454);
 		System.out.println(queue.poll());
 		//poll is used to read the element at the head of the queue without removing it–
+		
+		TreeMap<String, Integer> tree;
+		
+		HashMap<String, Integer> users = new HashMap<>();
 
 	}
 }
