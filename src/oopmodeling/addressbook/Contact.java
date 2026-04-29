@@ -1,20 +1,28 @@
 package oopmodeling.addressbook;
-
-import java.security.PublicKey;
-
-
+/**
+ * 
+ * @author Manolo
+ * Nov 28, 2025
+ */
 public class Contact {
-	public Contact(String name2, String phoneNumber2, String email2) {
-		
-		this.email = email2;
-		this.phoneNumber = phoneNumber2;
-		this.name = name2;
-
+	/**
+	 * Constructor used to create objects of this class and assign values 
+	 * to this type of objects' fields
+	 * @param name
+	 * @param phoneNumber
+	 * @param email
+	 */
+	public Contact(String name, String phoneNumber, String email) {
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.name = name;
 	}
+	//Attributes or fields of the class
 	private String phoneNumber;
 	private String name;
 	private String surname;
 	private String email;
+	
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -39,9 +47,9 @@ public class Contact {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public String toString() {
-		return "name: " + name + "phone number: " + phoneNumber;
-	}
 
+	@Override
+	public String toString() {
+		return "name: " + name + " phone number: " + phoneNumber;
+	}
 }

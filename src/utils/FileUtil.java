@@ -16,4 +16,9 @@ public class FileUtil {
 		}
 	}
 
+	public static void writeToFile(String string, String string2) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
